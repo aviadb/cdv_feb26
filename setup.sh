@@ -101,6 +101,6 @@ cd $ROOT_DIR
 
 
 
-git submodule update --init --recursive
-make -j4 -C lib/cbmc/src minisat2-download
-make -j4 -C src
+# git submodule update --init --recursive
+# make -j4 -C lib/cbmc/src minisat2-download
+# make -j4 -C src
