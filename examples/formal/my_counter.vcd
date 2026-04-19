@@ -1,0 +1,29 @@
+$date
+  Thu Apr  9 17:33:04 2026
+$end
+$timescale
+  1ns
+$end
+$scope module counter $end
+  $var wire 8 counter.out out [7:0] $end
+  $var wire 1 counter.enable enable $end
+  $var wire 1 counter.clk clk $end
+  $var reg 8 counter.state state [7:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+b00000000 counter.out
+0counter.enable
+b00000000 counter.state
+#1
+1counter.enable
+#2
+b00000001 counter.out
+b00000001 counter.state
+#3
+b00000010 counter.out
+b00000010 counter.state
+#4
+b00000011 counter.out
+0counter.enable
+b00000011 counter.state
