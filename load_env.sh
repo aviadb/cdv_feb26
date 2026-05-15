@@ -1,0 +1,1 @@
+export PATH=/home/aviadb/my_projects/cdv_feb26/third-party/verilator/bin:$PATH

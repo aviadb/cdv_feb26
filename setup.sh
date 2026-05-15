@@ -21,7 +21,7 @@ set -e
 
 ROOT_DIR=`pwd`
 
-SYNC_MODE="remote"
+SYNC_MODE="local"
 CLEAN_BUILD=0
 
 for arg in "$@"; do
