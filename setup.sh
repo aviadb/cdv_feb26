@@ -67,8 +67,10 @@ if [ -d "$TOOL_DIR" ] && [ -f "$TOOL_DIR/.git" ]; then
 
   if [[ "$CURRENT_HASH" != "$LAST_BUILT_HASH" || "$CLEAN_BUILD" == "1" ]]; then
     echo "Updating build for Verilator (Commit: ${CURRENT_HASH:0:7})..."
-    git fetch
-    git checkout "$CURRENT_HASH"
+    if [ "$SYNC_MODE" == "remote" ]; then
+      git fetch
+      git checkout "$CURRENT_HASH"
+    fi
     autoconf
     ./configure
     # code Makefile
