@@ -10,6 +10,7 @@ SRCS       =  $(UVM_DIR)/src/uvm.sv \
 							$(PROJECT_ROOT)/rtl/block_cells/mem_block_dp_cell.sv \
 							$(PROJECT_ROOT)/rtl/block_cells/sync_fifo_block_cell.sv \
 
+
 VERILOG_INCLUDE_DIRS = $(UVM_DIR)/src \
  $(PROJECT_ROOT)/rtl \
  $(PROJECT_ROOT)/dv/sync_fifo_uvm/
@@ -25,6 +26,7 @@ $(SIM_DIR)/$(SIM_NAME).mk:
 	--exe \
 	--main \
 	--timing \
+	--sched-zero-delay \
 	-Mdir $(SIM_DIR) \
 	--output-groups $(NPROC) \
 	--prefix $(SIM_NAME) -o $(SIM_NAME).test \
