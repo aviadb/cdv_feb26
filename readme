@@ -5,7 +5,7 @@ sudo apt-get install g++  # Alternatively, clang
 sudo apt-get install libgz  # Non-Ubuntu (ignore if gives error)
 sudo apt-get install libfl2  # Ubuntu only (ignore if gives error)
 sudo apt-get install libfl-dev  # Ubuntu only (ignore if gives error)
-sudo apt-get install zlibc zlib1g zlib1g-dev  # Ubuntu only (ignore if gives error)
+sudo apt-get install zlib1g zlib1g-dev  # Ubuntu only (ignore if gives error)
 sudo apt-get install z3  # Optional solver
 sudo apt-get install perl-doc
 sudo apt-get install ccache  # If present at build, needed for run
