@@ -1,9 +1,6 @@
 [submodule "third-party/verilator"]
 	path = third-party/verilator
 	url = https://github.com/verilator/verilator.git
-[submodule "third-party/cbmc"]
-	path = third-party/cbmc
-	url = https://github.com/diffblue/hw-cbmc.git
 [submodule "third-party/uvm-latest"]
 	path = third-party/uvm-latest
 	url = https://github.com/chipsalliance/uvm-verilator.git
