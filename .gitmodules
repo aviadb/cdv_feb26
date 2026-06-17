@@ -13,3 +13,6 @@
 [submodule "third-party/xschem"]
 	path = third-party/xschem
 	url = git@github.com:StefanSchippers/xschem.git
+[submodule "third-party/ngspice"]
+	path = third-party/ngspice
+	url = https://git.code.sf.net/p/ngspice/ngspice
