@@ -98,6 +98,57 @@ fi
 # make -j$(nproc)
 
 
+# xschem build
+
+XSCHEM_DIR="$ROOT_DIR/third-party/xschem"
+XSCHEM_HASH_FILE="$XSCHEM_DIR/.last_built_commit"
+XSCHEM_PREFIX="$XSCHEM_DIR/build"
+XSCHEM_BIN_LINKS="$ROOT_DIR/third-party/bin"
+
+if [ -d "$XSCHEM_DIR" ] && [ -f "$XSCHEM_DIR/.git" ]; then
+  cd "$XSCHEM_DIR"
+  if [ "$SYNC_MODE" == "remote" ]; then
+    XSCHEM_HASH=$(git ls-remote origin HEAD | awk '{print $1}')
+  else
+    XSCHEM_HASH=$(git rev-parse HEAD)
+  fi
+
+  if [ -f "$XSCHEM_HASH_FILE" ]; then
+    XSCHEM_LAST_HASH=$(cat "$XSCHEM_HASH_FILE")
+  else
+    XSCHEM_LAST_HASH=""
+  fi
+
+  echo "Head hash: $XSCHEM_HASH , Last build hash: $XSCHEM_LAST_HASH"
+
+  if [[ "$XSCHEM_HASH" != "$XSCHEM_LAST_HASH" || "$CLEAN_BUILD" == "1" ]]; then
+    echo "Updating build for xschem (Commit: ${XSCHEM_HASH:0:7})..."
+    if [ "$SYNC_MODE" == "remote" ]; then
+      git fetch
+      git checkout "$XSCHEM_HASH"
+    fi
+    if [[ "$CLEAN_BUILD" == "1" ]]; then
+      make distclean || true
+      rm -rf "$XSCHEM_PREFIX"
+    fi
+    ./configure --prefix="$XSCHEM_PREFIX"
+    make -j$(nproc)
+    make install
+
+    mkdir -p "$XSCHEM_BIN_LINKS"
+    ln -sf ../xschem/build/bin/xschem "$XSCHEM_BIN_LINKS/xschem"
+    ln -sf ../xschem/build/bin/rawtovcd "$XSCHEM_BIN_LINKS/rawtovcd"
+
+    echo "$XSCHEM_HASH" > "$XSCHEM_HASH_FILE"
+    echo "xschem build successful. Hash saved."
+  else
+    echo "No changes in xschem. Skipping build."
+  fi
+
+else
+  echo "Error: Submodule $XSCHEM_DIR not found."
+fi
+
 
 cd $ROOT_DIR
 
