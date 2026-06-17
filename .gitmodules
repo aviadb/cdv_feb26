@@ -4,6 +4,3 @@
 [submodule "third-party/uvm-latest"]
 	path = third-party/uvm-latest
 	url = https://github.com/chipsalliance/uvm-verilator.git
-[submodule "third-party/fmv"]
-	path = third-party/fmv
-	url = https://github.com/aviadb/fmv
