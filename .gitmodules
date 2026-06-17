@@ -10,3 +10,6 @@
 [submodule "third-party/fmv"]
 	path = third-party/fmv
 	url = https://github.com/aviadb/fmv
+[submodule "third-party/xschem"]
+	path = third-party/xschem
+	url = git@github.com:StefanSchippers/xschem.git
