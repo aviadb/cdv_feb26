@@ -16,3 +16,6 @@
 [submodule "third-party/ngspice"]
 	path = third-party/ngspice
 	url = https://git.code.sf.net/p/ngspice/ngspice
+[submodule "third-party/yosys"]
+	path = third-party/yosys
+	url = https://github.com/YosysHQ/yosys.git
